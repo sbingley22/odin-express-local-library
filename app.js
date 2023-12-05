@@ -12,6 +12,9 @@ const catalogRouter = require("./routes/catalog"); //Import routes for "catalog"
 
 var app = express();
 
+//see if this works
+const expressLayouts = require('express-ejs-layouts')
+
 // Set up mongoose connection
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
@@ -25,7 +28,11 @@ async function main() {
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.set('layout', 'views/layout');
+//app.set('layout', 'views/layout');
+
+//does this work
+app.use(expressLayouts);
+app.set('layout', 'layout');
 
 app.use(logger('dev'));
 app.use(express.json());
