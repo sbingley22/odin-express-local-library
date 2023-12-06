@@ -1,0 +1,17 @@
+<h1>Author: <%= author.name %></h1>
+<p><%= author.date_of_birth_formatted %> - <%= author.date_of_death_formatted %></p>
+
+<div class="margin-left:20px; margin-top:20px">
+    <h4>Books</h4>
+
+    <dl>
+        <% author_books.map( (book) => { %>
+            <dt><a href="<%= book.url %>"><%= book.title %></a></dt>
+            <dd><%= book.summary %></dd>
+        <% }) %>
+    </dl>
+
+    <% if (author_books.length === 0) { %>
+        <p>This author has no books.</p>
+    <% } %>
+</div>
