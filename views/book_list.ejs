@@ -1,0 +1,12 @@
+<h1><%= title %></h1>
+
+<ul>
+    <% book_list.map( (book) => { %>
+        <li>
+            <a href=<%= book.url %> >
+            <%= book.title %>
+            </a>
+            | <%= book.author.name %>
+        </li>
+    <% }) %>
+</ul>
