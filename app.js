@@ -21,9 +21,9 @@ const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
 
 //const mongoUrl = require(path.join(__dirname, 'mongourl.js'));
-const mongoUrl = `mongodb+srv://sbingley22:kA2AOUKQji9ce7YJ@cluster0.b9keqnj.mongodb.net/local_library?retryWrites=true&w=majority`;
 const databaseURL = mongoUrl;
-const mongoDB = process.env.MONGODB_URI || databaseURL;
+const mongoDB = process.env.MONGODB_URI;
+//const mongoDB = process.env.MONGODB_URI || databaseURL;
 
 main().catch((err) => console.log(err));
 async function main() {
