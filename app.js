@@ -20,10 +20,8 @@ const expressLayouts = require('express-ejs-layouts')
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
 
-//const mongoUrl = require(path.join(__dirname, 'mongourl.js'));
-const databaseURL = mongoUrl;
+//const databaseURL = require(path.join(__dirname, 'mongourl.js'));
 const mongoDB = process.env.MONGODB_URI;
-//const mongoDB = process.env.MONGODB_URI || databaseURL;
 
 main().catch((err) => console.log(err));
 async function main() {
