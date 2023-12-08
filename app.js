@@ -19,10 +19,6 @@ const expressLayouts = require('express-ejs-layouts')
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
 const mongoDB = databaseURL;
-//Check connection status
-if (mongoose.connection.readyState !== 1) {
-  console.error('MongoDB not connected');
-}
 
 main().catch((err) => console.log(err));
 async function main() {

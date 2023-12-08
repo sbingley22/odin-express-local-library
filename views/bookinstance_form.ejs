@@ -1,0 +1,61 @@
+<h1><%= title %></h1>
+
+<form action="" method="POST">
+    <div class="form-group">
+        <label for="book">Book: </label>
+        <select name="book" id="book" class="form-control" type="select" placeholder="Select book" required="true">
+            <% book_list.map ( (book) => { %>
+                <option 
+                value="<%= book._id %>" 
+                selected="<%= selected_book===book._id.toString() ? '' : false %>">
+                    <%= book.title %>
+                </option>
+            <% }) %>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="imprint">Imprint: </label>
+        <input 
+        type="text" 
+        id="imprint" 
+        class="form-control"
+        placeholder="Publisher and date information"
+        name="imprint"
+        required="true"
+        value="<%= undefined===bookinstance ? '' : bookinstance.imprint %>"
+        >
+    </div>
+    
+    <div class="form-group">
+        <label for="due_back">Date when book available: </label>
+        <input 
+        type="text" 
+        id="due_back" 
+        class="form-control"
+        name="due_back"
+        required="true"
+        value="<%= undefined===bookinstance ? '' : bookinstance.due_back_yyyy_mm_dd %>"
+        >
+    </div>
+
+    <div class="form-group">
+        <label for="status">Status: </label>
+        <select name="status" id="status" class="form-control" placeholder="Select status" type="select" required>
+            <option value="Maintenance" selected="<%= undefined===bookinstance || bookinstance.status!='Maintenance' ? false : 'selected' %>">Maintenance</option>
+            <option value="Available" selected="<%= undefined===bookinstance || bookinstance.status!='Available' ? false : 'selected' %>">Available</option>
+            <option value="Loaned" selected="<%= undefined===bookinstance || bookinstance.status!='Loaned' ? false : 'selected' %>">Loaned</option>
+            <option value="Reserved" selected="<%= undefined===bookinstance || bookinstance.status!='Reserved' ? false : 'selected' %>">Reserved</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<% if (errors) { %>
+    <ul>
+        <% errors.map( (error) => { %>
+            <li><%= error.msg %></li>
+        <% }) %>
+    </ul>
+<% } %>
