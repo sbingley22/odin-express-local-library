@@ -4,7 +4,10 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-const databaseURL = `mongodb+srv://sbingley22:kA2AOUKQji9ce7YJ@cluster0.b9keqnj.mongodb.net/local_library?retryWrites=true&w=majority`
+const mongoUrl = require(path.join(__dirname, 'mongourl.js'));
+const databaseURL = mongoUrl;
+
+console.log("SSSSSSSSSSSSSSSSS")
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
